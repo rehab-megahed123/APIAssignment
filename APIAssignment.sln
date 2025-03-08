@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIAssignment", "APIAssignment\APIAssignment.csproj", "{6461430A-D4CE-4FF2-8066-C43130DDD330}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.BLL", "API.BLL\API.BLL.csproj", "{636CF207-7A8E-4EC9-ADDC-0398D44F1385}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.DAL", "API.DAL\API.DAL.csproj", "{529DE95B-DD97-44CE-B61C-0C35B99CE93E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6461430A-D4CE-4FF2-8066-C43130DDD330}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6461430A-D4CE-4FF2-8066-C43130DDD330}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6461430A-D4CE-4FF2-8066-C43130DDD330}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6461430A-D4CE-4FF2-8066-C43130DDD330}.Release|Any CPU.Build.0 = Release|Any CPU
+		{636CF207-7A8E-4EC9-ADDC-0398D44F1385}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{636CF207-7A8E-4EC9-ADDC-0398D44F1385}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{636CF207-7A8E-4EC9-ADDC-0398D44F1385}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{636CF207-7A8E-4EC9-ADDC-0398D44F1385}.Release|Any CPU.Build.0 = Release|Any CPU
+		{529DE95B-DD97-44CE-B61C-0C35B99CE93E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{529DE95B-DD97-44CE-B61C-0C35B99CE93E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{529DE95B-DD97-44CE-B61C-0C35B99CE93E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{529DE95B-DD97-44CE-B61C-0C35B99CE93E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {547CCC92-307A-4653-B201-6DC13995801D}
+	EndGlobalSection
+EndGlobal
