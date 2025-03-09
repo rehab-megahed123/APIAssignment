@@ -24,25 +24,25 @@ namespace APIAssignment.Controllers
             return CreatedAtAction("GetProductById", new { id = product.Id }, product);
         }
         //5
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public IActionResult GetProductById(int id)
         {
-            
-                Product product = productManager.GetById(id);
-                if (product != null)
-                {
-                    return Ok(product);
-                }
-                else
-                {
-                    return NotFound("The product not exists");
-                }
-            
-            
+
+            Product product = productManager.GetById(id);
+            if (product != null)
+            {
+                return Ok(product);
+            }
+            else
+            {
+                return NotFound("The product not exists");
+            }
+
+
         }
         // The second end point
         [HttpPost("form")]
-        public IActionResult AddPremetiveProduct( Product product)
+        public IActionResult AddPremetiveProduct(Product product)
         {
 
 
@@ -55,34 +55,84 @@ namespace APIAssignment.Controllers
         [HttpPost("Upload")]
         public IActionResult AddProductUploadIMage(Product product)
         {
-            
-                if (product.formFile != null && product.formFile.Length > 0)
+
+            if (product.formFile != null && product.formFile.Length > 0)
+            {
+                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", product.formFile.FileName);
+                using (var stream = new FileStream(filePath, FileMode.Create))
                 {
-                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", product.formFile.FileName);
-                    using (var stream = new FileStream(filePath, FileMode.Create))
-                    {
-                        product.formFile.CopyTo(stream);
-                    }
-
-                    product.ImageUrl = "/images/" + product.formFile.FileName;
+                    product.formFile.CopyTo(stream);
                 }
-                productManager.AddProduct(product);
-                return CreatedAtAction("GetProductById", new { id = product.Id }, product);
 
-            
-            
+                product.ImageUrl = "/images/" + product.formFile.FileName;
+            }
+            productManager.AddProduct(product);
+            return CreatedAtAction("GetProductById", new { id = product.Id }, product);
+
+
+
 
         }
+        //5-
         [HttpPost("query")]
-        public IActionResult AdProductQuery([FromQuery]Product product)
+        public IActionResult AdProductQuery([FromQuery] Product product)
         {
-            
-
-                productManager.AddProduct(product);
-                return CreatedAtAction("GetProductById", new { id = product.Id }, product);
 
 
-            
+            productManager.AddProduct(product);
+            return CreatedAtAction("GetProductById", new { id = product.Id }, product);
+
+
+
         }
-    }
+        //5-2
+        [HttpGet("{category?}")]
+        public IActionResult GetByCategory(string? category)
+        {
+            if (category != null)
+            {
+
+
+                var res = productManager.GetByCategory(category);
+                if (res != null)
+                {
+                    return Ok(res);
+                }
+                else
+                {
+                    return NotFound("This Category can not be found");
+                }
+            }
+            else
+            {
+                var res = productManager.GetAll();
+                return Ok(res);
+            }
+
+
+
+        }
+        //6-7
+        [HttpPut]
+        public IActionResult UpdateProduct(Product product)
+        {
+            productManager.UpdateProduct(product);
+            return CreatedAtAction("GetProductById", new { id = product.Id }, product);
+        }
+        //8-
+        [HttpDelete("{id:int}")]
+        public IActionResult DeleteProduct(int id)
+        {
+            Product product = productManager.GetById(id);
+            if (product != null)
+            {
+                productManager.DeleteProduct(product);
+                return NoContent();
+            }
+            else
+            {
+                return NotFound("The product can not be found");
+            }
+
+        } }
 }

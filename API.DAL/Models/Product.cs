@@ -25,6 +25,10 @@ namespace API.DAL.Models
 
 
         public IFormFile? formFile { get; set; }
+        
+        public string? category { get; set; }
+       
+
 
     }
 }

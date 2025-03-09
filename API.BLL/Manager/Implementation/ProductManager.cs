@@ -22,10 +22,33 @@ namespace API.BLL.Manager.Implementation
             productRepository.AddProduct(product);
         }
 
+        public void DeleteProduct(Product product)
+        {
+            productRepository.Delete(product);
+
+        }
+
+        public List<Product> GetAll()
+        {
+            var res=productRepository.GetAll();
+            return res;
+        }
+
+        public List<Product> GetByCategory(string category)
+        {
+           var res= productRepository.GetByCategory(category);
+           return res;
+        }
+
         public Product GetById(int id)
         {
             Product product=productRepository.GetById(id);
             return product;
+        }
+
+        public void UpdateProduct(Product product)
+        {
+            productRepository.UpdateProduct(product);
         }
     }
 }

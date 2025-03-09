@@ -10,6 +10,10 @@ namespace API.DAL.Models
     public class ApplicationDBContext : DbContext
     {
         public DbSet<Product> Products { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        
+
+
         public ApplicationDBContext() : base()
         {
         }
